@@ -1,7 +1,8 @@
 import 'package:ecommerce_riverpod/providers/wishlist_provider.dart';
-import 'package:ecommerce_riverpod/screens/wishlist/wishlist_screen.dart';
+import 'package:ecommerce_riverpod/resources/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class FavoriteIcon extends ConsumerWidget {
   const FavoriteIcon({super.key});
@@ -13,14 +14,7 @@ class FavoriteIcon extends ConsumerWidget {
       children: [
         IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const FavoriteScreen();
-                },
-              ),
-            );
+            context.push(Routes.wishlistRoute);
           },
           icon: const Icon(Icons.favorite, color: Colors.red),
         ),

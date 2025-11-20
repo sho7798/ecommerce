@@ -1,4 +1,4 @@
-import 'package:ecommerce_riverpod/screens/home/home_screen.dart';
+import 'package:ecommerce_riverpod/resources/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: routeGenerator,
       title: '',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
-      home: const HomeScreen(),
     );
   }
 }

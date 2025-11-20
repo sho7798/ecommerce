@@ -18,35 +18,38 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
       appBar: AppBar(title: const Text('Wishlists'), centerTitle: true),
       body: Container(
         padding: const EdgeInsets.all(30),
-        child: Column(
-          children: [
-            Column(
-              children: favoriteProduct.map((product) {
-                return Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: Row(
-                    children: [
-                      Image.asset(product.image, width: 60, height: 60),
-                      const SizedBox(width: 10),
-                      Text('${product.title}...'),
-                      const Expanded(child: SizedBox()),
-                      Text('£${product.price}'),
-                      const SizedBox(width: 20),
-                      GestureDetector(
-                        onTap: () {
-                          ref
-                              .read(favoriteProvider.notifier)
-                              .removeFavorite(product);
-                        },
-                        child: const Icon(Icons.delete, color: Colors.red),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-          ],
-        ),
+        child: favoriteProduct.isEmpty
+            ? Center(
+                child: Text(
+                  'Your wishlist is empty!!!',
+                  style: TextStyle(fontSize: 16),
+                ),
+              )
+            : Column(
+                children: favoriteProduct.map((product) {
+                  return Container(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Row(
+                      children: [
+                        Image.asset(product.image, width: 60, height: 60),
+                        const SizedBox(width: 10),
+                        Text('${product.title}...'),
+                        const Expanded(child: SizedBox()),
+                        Text('${product.price} MMK'),
+                        const SizedBox(width: 20),
+                        GestureDetector(
+                          onTap: () {
+                            ref
+                                .read(favoriteProvider.notifier)
+                                .removeFavorite(product);
+                          },
+                          child: const Icon(Icons.delete, color: Colors.red),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
       ),
     );
   }

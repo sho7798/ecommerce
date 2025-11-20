@@ -18,41 +18,51 @@ class _CartScreenState extends ConsumerState<CartScreen> {
     final total = ref.watch(cartTotalProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Cart'), centerTitle: true),
+      appBar: AppBar(title: const Text('Carts'), centerTitle: true),
       body: Container(
         padding: const EdgeInsets.all(30),
-        child: Column(
-          children: [
-            Column(
-              children: cartProducts.map((product) {
-                return Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: Row(
-                    children: [
-                      Image.asset(product.image, width: 60, height: 60),
-                      const SizedBox(width: 10),
-                      Text('${product.title}...'),
-                      const Expanded(child: SizedBox()),
-                      Text('£${product.price}'),
-                      const SizedBox(width: 20),
-                      GestureDetector(
-                        onTap: () {
-                          ref
-                              .read(cartProvider.notifier)
-                              .removeProduct(product);
-                        },
-                        child: const Icon(Icons.delete, color: Colors.red),
-                      ),
-                    ],
+        child: (cartProducts.isEmpty)
+            ? Center(
+                child: Text(
+                  'Your cart is empty!!!',
+                  style: TextStyle(fontSize: 16),
+                ),
+              )
+            : Column(
+                children: [
+                  Column(
+                    children: cartProducts.map((product) {
+                      return Container(
+                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                        child: Row(
+                          children: [
+                            Image.asset(product.image, width: 60, height: 60),
+                            const SizedBox(width: 10),
+                            Text('${product.title}...'),
+                            const Expanded(child: SizedBox()),
+                            Text('${product.price} MMK'),
+                            const SizedBox(width: 20),
+                            GestureDetector(
+                              onTap: () {
+                                ref
+                                    .read(cartProvider.notifier)
+                                    .removeProduct(product);
+                              },
+                              child: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList(),
                   ),
-                );
-              }).toList(),
-            ),
 
-            // output totals here
-            Text('Total price - £$total'),
-          ],
-        ),
+                  // output totals here
+                  if (total != 0) Text('Total price - $total MMK'),
+                ],
+              ),
       ),
     );
   }

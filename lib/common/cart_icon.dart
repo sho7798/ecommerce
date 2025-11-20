@@ -1,7 +1,8 @@
 import 'package:ecommerce_riverpod/providers/cart_provider.dart';
-import 'package:ecommerce_riverpod/screens/cart/cart_screen.dart';
+import 'package:ecommerce_riverpod/resources/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class CartIcon extends ConsumerWidget {
   const CartIcon({super.key});
@@ -14,14 +15,7 @@ class CartIcon extends ConsumerWidget {
       children: [
         IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const CartScreen();
-                },
-              ),
-            );
+            context.push(Routes.cartRoute);
           },
           icon: const Icon(Icons.shopping_bag_outlined),
         ),

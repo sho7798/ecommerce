@@ -3,9 +3,10 @@ import 'package:ecommerce_riverpod/common/favorite_icon.dart';
 import 'package:ecommerce_riverpod/providers/cart_provider.dart';
 import 'package:ecommerce_riverpod/providers/product_provider.dart';
 import 'package:ecommerce_riverpod/providers/wishlist_provider.dart';
-import 'package:ecommerce_riverpod/screens/detail/detail.dart';
+import 'package:ecommerce_riverpod/resources/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -35,14 +36,7 @@ class HomeScreen extends ConsumerWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return DetailScreen(item: allProducts[index]);
-                    },
-                  ),
-                );
+                context.push(Routes.detailRoute, extra: allProducts[index]);
               },
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -55,7 +49,7 @@ class HomeScreen extends ConsumerWidget {
                       height: 60,
                     ),
                     Text(allProducts[index].title),
-                    Text('£${allProducts[index].price}'),
+                    Text('${allProducts[index].price} MMK'),
                     if (cartProducts.contains(allProducts[index]))
                       TextButton(
                         onPressed: () {

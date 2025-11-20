@@ -7,7 +7,7 @@ List<Product> allProducts = [
   Product(
     id: '1',
     title: 'Groovy Shorts',
-    price: 12,
+    price: 12000,
     image: 'assets/products/shorts.png',
     information: [
       'Size - Medium',
@@ -19,7 +19,7 @@ List<Product> allProducts = [
   Product(
     id: '2',
     title: 'Karati Kit',
-    price: 34,
+    price: 34000,
     image: 'assets/products/karati.png',
     information: [
       'Size - Medium',
@@ -31,7 +31,7 @@ List<Product> allProducts = [
   Product(
     id: '3',
     title: 'Denim Jeans',
-    price: 54,
+    price: 54000,
     image: 'assets/products/jeans.png',
     information: [
       'Size - Medium',
@@ -43,7 +43,7 @@ List<Product> allProducts = [
   Product(
     id: '4',
     title: 'Red Backpack',
-    price: 14,
+    price: 14000,
     image: 'assets/products/backpack.png',
     information: [
       'Size - Medium',
@@ -55,7 +55,7 @@ List<Product> allProducts = [
   Product(
     id: '5',
     title: 'Drum & Sticks',
-    price: 29,
+    price: 29000,
     image: 'assets/products/drum.png',
     information: [
       'Size - Medium',
@@ -67,7 +67,7 @@ List<Product> allProducts = [
   Product(
     id: '6',
     title: 'Blue Suitcase',
-    price: 44,
+    price: 44000,
     image: 'assets/products/suitcase.png',
     information: [
       'Size - Medium',
@@ -79,7 +79,7 @@ List<Product> allProducts = [
   Product(
     id: '7',
     title: 'Roller Skates',
-    price: 52,
+    price: 52000,
     image: 'assets/products/skates.png',
     information: [
       'Size - Medium',
@@ -91,7 +91,7 @@ List<Product> allProducts = [
   Product(
     id: '8',
     title: 'Electric Guitar',
-    price: 79,
+    price: 79000,
     image: 'assets/products/guitar.png',
     information: [
       'Size - Medium',

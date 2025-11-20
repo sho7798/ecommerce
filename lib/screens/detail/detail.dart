@@ -40,7 +40,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Text(
-                    '£${widget.item!.price}',
+                    '${widget.item!.price} MMK',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
